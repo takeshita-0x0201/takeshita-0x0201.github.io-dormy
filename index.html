@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <title>登録フォーム</title>
     <style>        
         body {
@@ -12,6 +13,49 @@
             padding: 15px;
         }
 
+        body, h1, select, button, input, textarea {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+         /* 説明テキストボックスのスタイル */
+        .explanation-box {
+            background-color: #fff; /* 背景色を白に */
+            padding: 15px;
+            border: 1px solid #ddd; /* 境界線を追加して四角形に */
+            border-radius: 4px; /* 角を少し丸める */
+            margin-top: 5px;
+            margin-bottom: 20px; /* 送信ボタンとの間に余白を追加 */
+            font-size: 14px;
+            color: #333;
+        }
+    
+        /* ラベルのスタイル */
+        .explanation-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+    
+        /* "参加日程について" の説明文のスタイル */
+        .explanation-box p {
+            margin: 0;
+            text-align: left;
+            line-height: 1.6;
+        }
+    
+        /* 説明文のスタイルを左揃え＆改行 */
+        .explanation-box p {
+            margin: 0;
+            text-align: left;
+            line-height: 1.6;
+        }
+    
+        /* 送信ボタンとの間に余白を追加 */
+        form .form-group:last-child {
+            margin-top: 20px;
+        }
+        
         h1 {
             text-align: center;
             color: #333;
@@ -204,6 +248,12 @@
             </select>
         </div>
 
+                <!-- シンプルな説明テキスト -->
+            <label class="explanation-label">参加日程について</label>
+            <div class="explanation-box">
+                <p>"3年生向け"の日程でも他学年の方の参加大歓迎です！</p>
+            </div>
+
         <input type="submit" value="送信" id="submitButton">
                 
     </form>
@@ -243,7 +293,7 @@
 
         // 一時的なサンプル日程を追加する処理
         function loadSampleSchedules() {
-            const sampleDates = ['2024/10/10', '2024/10/20', '2024/11/01']; // サンプル日程
+            const sampleDates = ['10月18日(月)19:00-20:00(3年生向け)', '10月21日(月)19:00-20:00(3年生向け)', '10月23日(月)19:00-20:00(3年生向け)','12月開催予定(1.2年生向け)']; // サンプル日程
             scheduleSelect.innerHTML = '<option value="">選択してください</option>'; // まず空にする
             sampleDates.forEach(date => {
                 const option = document.createElement('option');
