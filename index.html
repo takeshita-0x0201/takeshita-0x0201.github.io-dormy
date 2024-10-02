@@ -128,6 +128,7 @@
         <div class="form-group">
             <label for="dormitory">寮名</label>
             <select id="dormitory" name="dormitory" required>
+            　<option value="">選択してください</option>
               <option value="Bronze新越谷">Bronze新越谷</option>
               <option value="JRドーミー当別">JRドーミー当別</option>
               <option value="KU I-House">KU I-House</option>
@@ -239,7 +240,19 @@
             }
         });
 
-        function loadSchedules() {
+        // 一時的なサンプル日程を追加する処理
+        function loadSampleSchedules() {
+            const sampleDates = ['2024/10/10', '2024/10/20', '2024/11/01']; // サンプル日程
+            sampleDates.forEach(date => {
+                const option = document.createElement('option');
+                option.value = date;
+                option.textContent = date;
+                scheduleSelect.appendChild(option);
+            });
+        }
+
+        // 後でスプレッドシートから取得できるように準備
+        function loadSchedulesFromSheet() {
             google.script.run.withSuccessHandler(function(dates) {
                 dates.forEach(date => {
                     const option = document.createElement('option');
@@ -250,7 +263,8 @@
             }).getAvailableSchedules(); // GASでスケジュールを取得する関数を呼び出す
         }
 
-        loadSchedules();
+        // サンプル日程を表示
+        loadSampleSchedules();
 
         liff.init({ liffId: "" })
             .then(() => {
