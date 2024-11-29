@@ -296,7 +296,7 @@
 
         // 一時的なサンプル日程を追加する処理
         function loadSampleSchedules() {
-            const sampleDates = ['12月23日(月)19:00-20:00, 12月26日(木)19:00-20:00, 日程が合わない…']; // サンプル日程
+            const sampleDates = ['12月23日(月)19:00-20:00', '12月26日(木)19:00-20:00', '日程が合わない…']; // サンプル日程
             scheduleSelect.innerHTML = '<option value="">選択してください</option>'; // まず空にする
             sampleDates.forEach(date => {
                 const option = document.createElement('option');
